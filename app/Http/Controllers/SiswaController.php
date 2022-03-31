@@ -10,4 +10,13 @@ class SiswaController extends Controller
         $siswiRanum = ["Aura Kasih", "Anya Geraldine", "Ariel Tatum", "Anindita Hidayat"];
         return view('siswa.index',["siswa"=>$siswiRanum]);
     }
+
+    public function create() {
+        return view('siswa.create');
+    }
+
+    public function store(Request $request) {
+        $siswa = $request->all();
+        return $siswa;
+    }
 }

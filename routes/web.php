@@ -40,3 +40,7 @@ Route::get('about',[AboutController::class,'index']);
 // });
 
 Route::get('siswa',[SiswaController::class,'index']);
+
+Route::get('siswa/create',[SiswaController::class,'create']);
+
+Route::post('siswa',[SiswaController::class,'store']);
