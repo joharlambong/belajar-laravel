@@ -4,6 +4,7 @@
     <div id="siswa">
         <h2>Tambah Siswi</h2>
         <form action="{{ url('siswa') }}" method="POST">
+            @csrf
             <div class="form-group">
                 <label for="nisn" class="control-label">NISN</label>
                 <input name="nisn" id="nisn" type="text" class="form-control">
