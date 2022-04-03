@@ -44,7 +44,7 @@ Route::get('siswa',[SiswaController::class,'index']);
 
 Route::get('siswa/create',[SiswaController::class,'create']);
 
-Route::post('siswa',[SiswaController::class,'store']);
+Route::post('siswa',[SiswaController::class,'simpan']);
 
 Route::get('sampledata', function() {
     DB::table('siswa')->insert([
@@ -129,3 +129,5 @@ Route::get('sampledata', function() {
         ]
     ]);
 });
+
+Route::get('siswa/{siswa}',[SiswaController::class,'show']);

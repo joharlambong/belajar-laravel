@@ -22,8 +22,7 @@
                             <td>{{ $siswa->nama_siswa }}</td>
                             <td>{{ $siswa->tanggal_lahir }}</td>
                             <td>{{ $siswa->jenis_kelamin }}</td>
-                            <!-- <td><button type="button" class="btn btn-success btn-sm">Detail</button></td> -->
-                            <td>{{ link_to('siswa/'.$siswa->id, 'Detail',['class' => 'btn btn-success btn-sm']) }}</td>
+                            <td><?php echo"<a href='siswa/$siswa->id' class='btn btn-success btn-sm'>Detail</a>"; ?></td>
                         </tr>
                     <?php endforeach ?>
                 </tbody>
@@ -32,8 +31,19 @@
                 <p>Tidak ada data siswi binale.</p>
         @endif
 
-        <div class="pull-left">
-            <strong>Jumlah Siswa: {{ $jumlah_siswa }}</strong>
+        <div class="table-bottom">
+            <div class="pull-left">
+                <strong>Jumlah Siswa: {{ $jumlah_siswa }}</strong>
+            </div>
+            <div class="pull-right">
+                Vagination
+            </div>
+        </div>
+
+        <div class="bottom-nav">
+            <div>
+                <a href="siswa/create" class="btn btn-primary">Tambah Siswa</a>
+            </div>
         </div>
     </div>
 @stop
