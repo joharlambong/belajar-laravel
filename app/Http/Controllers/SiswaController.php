@@ -10,10 +10,10 @@ class SiswaController extends Controller
     public function index() {
         // $siswiRanum = ["Aura Kasih", "Anya Geraldine", "Ariel Tatum", "Anindita Hidayat"];
         // return view('siswa.index',["siswa"=>$siswiRanum]);
-        $halaman="siswa";
+        //$halaman="siswa";
         $siswa_list=Siswa::all()->sortBy('tanggal_lahir',0);
         $jumlah_siswa = $siswa_list->count();
-        return view('siswa.index',compact('halaman','siswa_list','jumlah_siswa'));
+        return view('siswa.index',compact('siswa_list','jumlah_siswa'));
     }
 
     public function create() {
@@ -37,8 +37,25 @@ class SiswaController extends Controller
     }
 
     public function show($id) {
-        $halaman='siswa';
+        //$halaman='siswa';
         $siswa = Siswa::findOrFail($id);
-        return view('siswa.show', compact('halaman','siswa'));
+        return view('siswa.show', compact('siswa'));
+    }
+
+    public function edit($id) {
+        $siswa = Siswa::findOrFail($id);
+        return view('siswa.edit', compact('siswa'));
+    }
+
+    public function update($id, Request $request) {
+        $siswa = Siswa::findOrFail($id);
+        $siswa->update($request->all());
+        return redirect('siswa');
+    }
+
+    public function destroy($id) {
+        $siswa = Siswa::findOrFail($id);
+        $siswa->delete();
+        return redirect('siswa');
     }
 }

@@ -131,3 +131,9 @@ Route::get('sampledata', function() {
 });
 
 Route::get('siswa/{siswa}',[SiswaController::class,'show']);
+
+Route::get('siswa/{siswa}/edit',[SiswaController::class,'edit']);
+
+Route::patch('siswa/{siswa}',[SiswaController::class,'update'])->name('updateSiswa');
+
+Route::delete('siswa/{siswa}',[SiswaController::class,'destroy'])->name('hapusSiswa');

@@ -22,7 +22,19 @@
                             <td>{{ $siswa->nama_siswa }}</td>
                             <td>{{ $siswa->tanggal_lahir }}</td>
                             <td>{{ $siswa->jenis_kelamin }}</td>
-                            <td><?php echo"<a href='siswa/$siswa->id' class='btn btn-success btn-sm'>Detail</a>"; ?></td>
+                            <td>
+                                <div class="box-button">
+                                    <?php echo "<a href='siswa/$siswa->id' class='btn btn-success btn-sm'>Detail</a>"; ?>
+                                </div>
+                                <div class="box-button">
+                                    <?php echo "<a href='siswa/$siswa->id/edit' class='btn btn-warning btn-sm'>Edit</a>"; ?>
+                                </div>
+                                <div class="box-button">
+                                    {!! Form::open(['method'=>'DELETE','route'=>['hapusSiswa',$siswa->id]]) !!}
+                                    {!! Form::submit('Delete',['class'=>'btn btn-danger btn-sm']) !!}
+                                    {!! Form::close() !!}
+                                </div>
+                            </td>
                         </tr>
                     <?php endforeach ?>
                 </tbody>
